@@ -1,6 +1,13 @@
 #include "push_swap.h"
 
-// Base case: three numbers
+/**
+ * handle_base_case_three - Handles the base case where the chunk has three elements.
+ * @push_swap: The push_swap structure containing the stacks and metadata.
+ * @chunk: The current chunk being processed.
+ *
+ * This function handles the base case when the chunk has exactly three elements.
+ * It performs the necessary operations to sort these three elements.
+ */
 void	handle_base_case_three(t_push_swap *push_swap, int chunk)
 {
 	if (chunk == 2 && push_swap->len_a == 3)
@@ -17,7 +24,13 @@ void	handle_base_case_three(t_push_swap *push_swap, int chunk)
 		base_case_three_bottom_b(push_swap);
 }
 
-// Sort three numbers at the top of a
+/**
+ * base_case_three_top_a - Sorts three elements at the top of stack A.
+ * @push_swap: The push_swap structure containing the stacks and metadata.
+ *
+ * This function sorts three elements at the top of stack A based on specific
+ * sorting cases determined by the positions of the minimum and maximum values.
+ */
 void	base_case_three_top_a(t_push_swap *push_swap)
 {
 	int	min;
@@ -42,7 +55,13 @@ void	base_case_three_top_a(t_push_swap *push_swap)
 		swap_a(push_swap);
 }
 
-// Sort three numbers at the bottom of stack a and push them to top
+/**
+ * base_case_three_bottom_a - Sorts three elements at the bottom of stack A and pushes them to the top.
+ * @push_swap: The push_swap structure containing the stacks and metadata.
+ *
+ * This function sorts three elements at the bottom of stack A and moves them
+ * to the top of stack A.
+ */
 void	base_case_three_bottom_a(t_push_swap *push_swap)
 {
 	int	min;
@@ -67,8 +86,12 @@ void	base_case_three_bottom_a(t_push_swap *push_swap)
 		push_a(push_swap);
 }
 
-// Sort three numbers at the top of stack b and push them
-// on top of stack a
+/**
+ * base_case_three_top_b - Sorts three elements at the top of stack B and pushes them to stack A.
+ * @push_swap: The push_swap structure containing the stacks and metadata.
+ *
+ * This function sorts three elements at the top of stack B and moves them to the top of stack A.
+ */
 void	base_case_three_top_b(t_push_swap *push_swap)
 {
 	int	min;
@@ -88,8 +111,12 @@ void	base_case_three_top_b(t_push_swap *push_swap)
 	push_a(push_swap);
 }
 
-// Sort three numbers at the bottom of stack b and push them
-// on top of stack a
+/**
+ * base_case_three_bottom_b - Sorts three elements at the bottom of stack B and pushes them to stack A.
+ * @push_swap: The push_swap structure containing the stacks and metadata.
+ *
+ * This function sorts three elements at the bottom of stack B and moves them to the top of stack A.
+ */
 void	base_case_three_bottom_b(t_push_swap *push_swap)
 {
 	int	min;

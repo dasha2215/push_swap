@@ -12,8 +12,15 @@
 
 #include "push_swap.h"
 
-// Checks if stack a is sorted. Receives a 'top' value so the function can also
-// check if stack is sorted after a certain element
+/**
+ * is_stack_sorted - Checks if stack A is sorted.
+ * @push_swap: The push_swap structure containing the stacks and metadata.
+ * @top: The starting index to check from.
+ *
+ * This function checks if stack A is sorted from the given starting index.
+ *
+ * Return: 1 if the stack is sorted, 0 otherwise.
+ */
 int	is_stack_sorted(t_push_swap *push_swap, int top)
 {
 	int	i;
@@ -33,8 +40,15 @@ int	is_stack_sorted(t_push_swap *push_swap, int top)
 	return (1);
 }
 
-// Core recursive function: receives a chunk, calls a sorting function on it,
-// then calls itself on each of the three resulting chunks
+/**
+ * split_chunk - Recursively sorts chunks of the stack.
+ * @push_swap: The push_swap structure containing the stacks and metadata.
+ * @len: The length of the current chunk.
+ * @chunk: The current chunk being processed.
+ *
+ * This function recursively sorts chunks of the stack by dividing them into
+ * smaller chunks and sorting each chunk.
+ */
 void	split_chunk(t_push_swap *push_swap, int len, int chunk)
 {
 	int	chunk_len[3];
@@ -61,8 +75,15 @@ void	split_chunk(t_push_swap *push_swap, int len, int chunk)
 		split_chunk(push_swap, chunk_len[0], 4);
 }
 
-// Checks if the current max chunk on top_a is sorted (in case the elements
-// are by chance in the correct order and don't require sorting)
+/**
+ * is_top_a_sorted - Checks if the top chunk of stack A is sorted.
+ * @push_swap: The push_swap structure containing the stacks and metadata.
+ * @len: The length of the chunk to check.
+ *
+ * This function checks if the top chunk of stack A is sorted.
+ *
+ * Return: The index up to which the stack is sorted.
+ */
 int	is_top_a_sorted(t_push_swap *push_swap, int len)
 {
 	int	i;
@@ -91,8 +112,13 @@ int	is_top_a_sorted(t_push_swap *push_swap, int len)
 	return (0);
 }
 
-// General sorting function: checks if the stack is already sorted; if not,
-// starts a sorting algorithm depending on the length of the stack
+/**
+ * sort_stack - Sorts the entire stack using the appropriate algorithm.
+ * @push_swap: The push_swap structure containing the stacks and metadata.
+ *
+ * This function sorts the entire stack using the appropriate sorting algorithm
+ * based on the length of the stack.
+ */
 void	sort_stack(t_push_swap *push_swap)
 {
 	if (is_stack_sorted(push_swap, 0))

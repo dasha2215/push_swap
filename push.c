@@ -1,5 +1,17 @@
 #include "push_swap.h"
 
+/**
+ * push - Pushes the top element from one stack to another.
+ * @stack_from: The source stack.
+ * @stack_to: The destination stack.
+ * @stack_from_len: The length of the source stack.
+ * @stack_to_len: The length of the destination stack.
+ *
+ * This function pushes the top element from the source stack to the destination
+ * stack, adjusting both stacks accordingly.
+ *
+ * Return: 1 if the push is successful, 0 otherwise.
+ */
 int	push(int *stack_from, int *stack_to, int stack_from_len, int stack_to_len)
 {
 	int	tmp;

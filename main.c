@@ -1,6 +1,14 @@
 #include "push_swap.h"
 
-// Initializes the push_swap structure
+/**
+ * init_push_swap - Initializes the push_swap structure.
+ * @stack: The initial stack array.
+ *
+ * This function allocates memory for and initializes the push_swap structure.
+ * It sets up the stack arrays and other necessary metadata.
+ *
+ * Return: A pointer to the initialized push_swap structure, or NULL on failure.
+ */
 t_push_swap	*init_push_swap(char **stack)
 {
 	t_push_swap	*push_swap;
@@ -27,8 +35,16 @@ t_push_swap	*init_push_swap(char **stack)
 	return (push_swap);
 }
 
-// Checks if stack is valid and saves it into an integer array
-// within push_swap structure
+/**
+ * check_stack - Validates and converts the stack input to integers.
+ * @push_swap: The push_swap structure containing the stacks and metadata.
+ * @stack: The stack input as an array of strings.
+ *
+ * This function validates the stack input, converts it to integers, and stores
+ * it in the push_swap structure. It checks for duplicates and invalid values.
+ *
+ * Return: 1 if the stack is valid, 0 otherwise.
+ */
 int	check_stack(t_push_swap *push_swap, char **stack)
 {
 	long int	n;
@@ -53,7 +69,15 @@ int	check_stack(t_push_swap *push_swap, char **stack)
 	return (1);
 }
 
-// Parses input into a 2D char array
+/**
+ * parse_stack - Parses the input arguments into a 2D char array.
+ * @argv: The input arguments.
+ *
+ * This function concatenates the input arguments into a single string, splits
+ * it into a 2D char array, and handles any empty string errors.
+ *
+ * Return: A 2D char array representing the stack, or NULL on failure.
+ */
 char	**parse_stack(char **argv)
 {
 	char	**stack;
@@ -83,7 +107,14 @@ char	**parse_stack(char **argv)
 	return (stack);
 }
 
-// Returns the length of stack
+/**
+ * count_stack_len - Counts the number of elements in a stack.
+ * @stack: The stack array.
+ *
+ * This function counts the number of elements in the stack array.
+ *
+ * Return: The number of elements in the stack.
+ */
 int	count_stack_len(char **stack)
 {
 	int	len;
@@ -94,6 +125,16 @@ int	count_stack_len(char **stack)
 	return (len);
 }
 
+/**
+ * main - The main function for the push_swap program.
+ * @argc: The argument count.
+ * @argv: The argument vector.
+ *
+ * This function initializes the program, parses the input, validates the stack,
+ * and performs the sorting algorithm. It also handles errors and memory cleanup.
+ *
+ * Return: 0 on successful execution.
+ */
 int	main(int argc, char **argv)
 {
 	t_push_swap	*push_swap;

@@ -12,6 +12,16 @@
 
 #include "push_swap.h"
 
+/**
+ * reverse_rotate - Performs a reverse rotation on a stack.
+ * @stack: The stack array.
+ * @len: The length of the stack.
+ *
+ * This function performs a reverse rotation on the stack, moving the bottom
+ * element to the top.
+ *
+ * Return: 1 if the rotation is successful, 0 otherwise.
+ */
 int	reverse_rotate(int *stack, int len)
 {
 	int	tmp;

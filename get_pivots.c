@@ -1,6 +1,17 @@
 #include "push_swap.h"
 
-// General function that determines the algorithm for getting pivots
+/**
+ * get_pivots - Determines pivot values for dividing a stack into chunks.
+ * @stack: The stack array.
+ * @len: The length of the chunk.
+ * @min: Pointer to store the lower pivot value.
+ * @max: Pointer to store the upper pivot value.
+ *
+ * This function calculates pivot values for dividing the stack into chunks.
+ * It uses quick sort for larger chunks and insertion sort for smaller chunks.
+ *
+ * Return: 1 on success, 0 on failure.
+ */
 int	get_pivots(int *stack, int len, int *min, int *max)
 {
 	int	*arr;
@@ -28,7 +39,15 @@ int	get_pivots(int *stack, int len, int *min, int *max)
 	return (1);
 }
 
-// Insertion sort: used for chunks of 10 or less elements
+/**
+ * get_pivots_for_ten - Determines pivot values for chunks of ten or fewer elements.
+ * @stack: The stack array.
+ * @len: The length of the chunk.
+ * @min: Pointer to store the lower pivot value.
+ * @max: Pointer to store the upper pivot value.
+ *
+ * This function calculates pivot values for smaller chunks using insertion sort.
+ */
 void	get_pivots_for_ten(int *stack, int len, int *min, int *max)
 {
 	sort_arr_of_ten(stack, len);
@@ -44,6 +63,13 @@ void	get_pivots_for_ten(int *stack, int len, int *min, int *max)
 	}
 }
 
+/**
+ * sort_arr_of_ten - Sorts an array of ten or fewer elements using insertion sort.
+ * @arr: The array to be sorted.
+ * @len: The length of the array.
+ *
+ * This function sorts an array of ten or fewer elements using the insertion sort algorithm.
+ */
 void	sort_arr_of_ten(int *arr, int len)
 {
 	int	i;
@@ -65,7 +91,14 @@ void	sort_arr_of_ten(int *arr, int len)
 	}
 }
 
-// Quick sort: used for chunks of more than 10 elements
+/**
+ * sort_arr - Sorts an array using the quick sort algorithm.
+ * @arr: The array to be sorted.
+ * @low: The starting index of the array to be sorted.
+ * @high: The ending index of the array to be sorted.
+ *
+ * This function sorts an array using the quick sort algorithm.
+ */
 void	sort_arr(int *arr, int low, int high)
 {
 	int	mid;
@@ -78,6 +111,16 @@ void	sort_arr(int *arr, int low, int high)
 	}
 }
 
+/**
+ * split_arr - Splits an array for the quick sort algorithm.
+ * @arr: The array to be split.
+ * @low: The starting index of the array to be split.
+ * @high: The ending index of the array to be split.
+ *
+ * This function splits an array into two parts for the quick sort algorithm.
+ *
+ * Return: The partition index.
+ */
 int	split_arr(int *arr, int low, int high)
 {
 	int	pivot;

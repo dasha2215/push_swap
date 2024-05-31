@@ -1,5 +1,13 @@
 #include "push_swap.h"
 
+/**
+ * replace_node - Replaces the content of a node with a new command.
+ * @current: The current node to be replaced.
+ * @str: The new command string.
+ *
+ * This function replaces the content of the current node with a new command
+ * and removes the next node in the list.
+ */
 void	replace_node(t_list **current, char *str)
 {
 	t_list	*temp;
@@ -14,6 +22,13 @@ void	replace_node(t_list **current, char *str)
 	free(temp);
 }
 
+/**
+ * replace_commands - Replaces pairs of commands with their combined form.
+ * @cmds: The list of commands.
+ *
+ * This function iterates through the list of commands and replaces pairs of
+ * commands that can be combined into a single command.
+ */
 void	replace_commands(t_list **cmds)
 {
 	t_list	*current;
@@ -41,6 +56,16 @@ void	replace_commands(t_list **cmds)
 	}
 }
 
+/**
+ * is_unnecessary_pair - Checks if two consecutive commands neutralize each other.
+ * @cmd1: The first command.
+ * @cmd2: The second command.
+ *
+ * This function compares two consecutive commands to determine if their effects
+ * cancel each other out.
+ *
+ * Return: 1 if the commands are unnecessary, 0 otherwise.
+ */
 int	is_unnecessary_pair(char *cmd1, char *cmd2)
 {
 	if (ft_strncmp(cmd1, "pa", 2) == 0 && ft_strncmp(cmd2, "pb", 2) == 0)
@@ -62,6 +87,13 @@ int	is_unnecessary_pair(char *cmd1, char *cmd2)
 	return (0);
 }
 
+/**
+ * remove_unnecessary_commands - Removes unnecessary command pairs from the list.
+ * @cmds: The list of commands.
+ *
+ * This function iterates through the list of commands and removes pairs of
+ * commands that neutralize each other.
+ */
 void	remove_unnecessary_commands(t_list **cmds)
 {
 	t_list	*current;
@@ -91,6 +123,13 @@ void	remove_unnecessary_commands(t_list **cmds)
 	}
 }
 
+/**
+ * optimize_commands - Optimizes the list of commands.
+ * @cmds: The list of commands.
+ *
+ * This function optimizes the list of commands by replacing combined commands
+ * and removing unnecessary command pairs.
+ */
 void	optimize_commands(t_list *cmds)
 {
 	replace_commands(&cmds);

@@ -12,6 +12,14 @@
 
 #include "push_swap.h"
 
+/**
+ * sort_five - Sorts five elements in stack A.
+ * @push_swap: The push_swap structure containing the stacks and metadata.
+ *
+ * This function sorts five elements in stack A. It uses push operations to move
+ * elements to stack B, sorts the remaining elements in stack A, and then inserts
+ * the elements from stack B back into stack A in the correct positions.
+ */
 void	sort_five(t_push_swap *push_swap)
 {
 	int	idx0;
@@ -28,6 +36,17 @@ void	sort_five(t_push_swap *push_swap)
 		insert(push_swap, idx0, idx1);
 }
 
+/**
+ * get_index - Determines the index for insertion in stack A.
+ * @push_swap: The push_swap structure containing the stacks and metadata.
+ * @i: Index of the element in stack B to be inserted.
+ * @y: Index of the other element in stack B to compare.
+ *
+ * This function determines the appropriate index in stack A to insert an element
+ * from stack B. It considers the relative positions of the elements in both stacks.
+ *
+ * Return: The index in stack A where the element should be inserted.
+ */
 int	get_index(t_push_swap *push_swap, int i, int y)
 {
 	int	*stack_a;
@@ -49,6 +68,16 @@ int	get_index(t_push_swap *push_swap, int i, int y)
 		return (2);
 }
 
+/**
+ * insert - Inserts elements from stack B into stack A in the correct positions.
+ * @push_swap: The push_swap structure containing the stacks and metadata.
+ * @idx0: Index for the first element to be inserted.
+ * @idx1: Index for the second element to be inserted.
+ *
+ * This function inserts elements from stack B into stack A at the correct positions
+ * to maintain the sorted order in stack A. It handles different cases based on the
+ * calculated indices.
+ */
 void	insert(t_push_swap *push_swap, int idx0, int idx1)
 {
 	if (idx0 < idx1)
@@ -69,6 +98,16 @@ void	insert(t_push_swap *push_swap, int idx0, int idx1)
 		swap_a(push_swap);
 }
 
+/**
+ * painful_insert - Handles complex insertions of elements from stack B to stack A.
+ * @push_swap: The push_swap structure containing the stacks and metadata.
+ * @idx0: Index for the first element to be inserted.
+ * @idx1: Index for the second element to be inserted.
+ *
+ * This function handles more complex cases for inserting elements from stack B
+ * into stack A. It manages scenarios where the indices require multiple rotations
+ * or swaps to maintain the sorted order.
+ */
 void	painful_insert(t_push_swap *push_swap, int idx0, int idx1)
 {
 	if ((idx0 == 2 && (idx1 == 3 || idx1 == 4))
@@ -92,6 +131,16 @@ void	painful_insert(t_push_swap *push_swap, int idx0, int idx1)
 	}
 }
 
+/**
+ * swap_indexes - Swaps two indices and performs the necessary operations.
+ * @push_swap: The push_swap structure containing the stacks and metadata.
+ * @idx0: Pointer to the first index.
+ * @idx1: Pointer to the second index.
+ *
+ * This function swaps the values of two indices and performs a swap operation
+ * on stack B to reflect this change. It helps in managing the order of elements
+ * during insertion.
+ */
 void	swap_indexes(t_push_swap *push_swap, int *idx0, int *idx1)
 {
 	int	temp;

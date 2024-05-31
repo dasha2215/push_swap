@@ -1,5 +1,15 @@
 #include "push_swap.h"
 
+/**
+ * rotate - Performs a rotation on a stack.
+ * @stack: The stack array.
+ * @len: The length of the stack.
+ *
+ * This function performs a rotation on the stack, moving the top element to
+ * the bottom.
+ *
+ * Return: 1 if the rotation is successful, 0 otherwise.
+ */
 int	rotate(int *stack, int len)
 {
 	int	tmp;

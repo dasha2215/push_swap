@@ -1,6 +1,17 @@
 #include "push_swap.h"
 
-// Determine if recursion has reached base case
+/**
+ * handle_base_case - Checks if the recursion has reached a base case.
+ * @push_swap: The push_swap structure containing the stacks and metadata.
+ * @chunk: The current chunk being processed.
+ * @len: The length of the current chunk.
+ *
+ * This function checks if the recursion has reached a base case for sorting,
+ * such as having 1, 2, or 3 elements. It calls the appropriate base case handler
+ * and returns 1 if a base case is handled, otherwise it returns 0.
+ *
+ * Return: 1 if a base case is handled, 0 otherwise.
+ */
 int	handle_base_case(t_push_swap *push_swap, int chunk, int len)
 {
 	if (len == 0)
@@ -30,7 +41,14 @@ int	handle_base_case(t_push_swap *push_swap, int chunk, int len)
 	return (0);
 }
 
-// Base case: one number
+/**
+ * handle_base_case_one - Handles the base case where the chunk has one element.
+ * @push_swap: The push_swap structure containing the stacks and metadata.
+ * @chunk: The current chunk being processed.
+ *
+ * This function handles the base case when the chunk has exactly one element.
+ * Depending on the chunk, it performs the necessary operations to handle this case.
+ */
 void	handle_base_case_one(t_push_swap *push_swap, int chunk)
 {
 	if (chunk == 1)
@@ -46,7 +64,14 @@ void	handle_base_case_one(t_push_swap *push_swap, int chunk)
 		push_swap->start = push_swap->stack_a[0];
 }
 
-// Base case: two numbers
+/**
+ * handle_base_case_two - Handles the base case where the chunk has two elements.
+ * @push_swap: The push_swap structure containing the stacks and metadata.
+ * @chunk: The current chunk being processed.
+ *
+ * This function handles the base case when the chunk has exactly two elements.
+ * It performs the necessary operations to sort or move these two elements.
+ */
 void	handle_base_case_two(t_push_swap *push_swap, int chunk)
 {
 	if (chunk == 1)
@@ -70,8 +95,17 @@ void	handle_base_case_two(t_push_swap *push_swap, int chunk)
 		swap_a(push_swap);
 }
 
-// Helper function for base case: three numbers; determines the
-// order of values (has conditions for top and bottom chunks)
+/**
+ * get_case - Determines the sorting case for three elements.
+ * @len: The length of the stack.
+ * @min: The index of the minimum value.
+ * @max: The index of the maximum value.
+ *
+ * This helper function determines the specific case for sorting three elements
+ * based on the positions of the minimum and maximum values.
+ *
+ * Return: An integer representing the specific case for sorting.
+ */
 int	get_case(int len, int min, int max)
 {
 	if (min == 0 && max == 2)
@@ -101,8 +135,16 @@ int	get_case(int len, int min, int max)
 	return (0);
 }
 
-// Helper function for base case: three numbers; compares values to find
-// min and max
+/**
+ * get_min_max - Finds the minimum and maximum values in the stack.
+ * @stack: The stack array.
+ * @len: The length of the stack.
+ * @min: Pointer to store the index of the minimum value.
+ * @max: Pointer to store the index of the maximum value.
+ *
+ * This helper function finds the minimum and maximum values in the stack
+ * and updates the provided pointers with their indices.
+ */
 void	get_min_max(int *stack, int len, int *min, int *max)
 {
 	int	a;

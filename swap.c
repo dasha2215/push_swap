@@ -1,5 +1,14 @@
 #include "push_swap.h"
 
+/**
+ * swap - Swaps the first two elements of a stack.
+ * @stack: The stack array.
+ * @len: The length of the stack.
+ *
+ * This function swaps the first two elements of a stack if the stack has more than one element.
+ *
+ * Return: 1 if the swap is successful, 0 otherwise.
+ */
 int	swap(int *stack, int len)
 {
 	int	tmp;
